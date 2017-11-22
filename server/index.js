@@ -22,7 +22,7 @@ function handleEmail(req, res) {
       service: 'Gmail',
       auth: {
         user: 'chattickmail@gmail.com',
-        pass: config.MAIL
+        pass: process.env.MAIL || config.MAIL
       }
     });
     var mailOptions = {
@@ -52,7 +52,7 @@ app.post('/map', (req, res) => {
     var params = {
       origin: JSON.parse(body).location,
       destination: "10485 Theodore Green Blvd, White Plains, MD",
-      key: config.DIRECTIONS,
+      key: process.env.DIRECTIONS || config.DIRECTIONS
     };
     map.getDirectionSteps(params, function (err, steps) {
       if (err) {
