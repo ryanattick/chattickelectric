@@ -1,0 +1,14 @@
+@font-face {
+  font-family: Ubuntu Medium;
+  src: url('/Ubuntu-Medium.ttf');
+}
+
+@font-face {
+  font-family: Ubuntu Regular;
+  src: url('/Ubuntu-Regular.ttf');
+}
+
+@font-face {
+  font-family: Spectral Regular;
+  src: url('/SpectralSC-Regular.ttf');
+}

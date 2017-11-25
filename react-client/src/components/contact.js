@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import style from '../../dist/contact.css';
+import style from '../../styles/contact.css';
 import $ from 'jquery';
 
 class Contact extends Component {
