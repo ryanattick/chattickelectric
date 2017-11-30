@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import Delete from 'material-ui/svg-icons/action/highlight-off';
+import CircularProgress from 'material-ui/CircularProgress';
 import style from '../../styles/contact.css';
 import $ from 'jquery';
 
@@ -18,7 +20,8 @@ class Contact extends Component {
       directions: [],
       email: '',
       subject: '',
-      message: ''
+      message: '',
+      submitClicked: false
     };
     this.handleClose = this.handleClose.bind(this);
     this.handleOpen = this.handleOpen.bind(this);
@@ -116,6 +119,9 @@ class Contact extends Component {
   }
 
   handleDirections() {
+    this.setState({
+      submitClicked: true
+    })
     var address = document.getElementById('directionInput').value;
     $.ajax({
       url: '/map',
@@ -123,7 +129,8 @@ class Contact extends Component {
       data: JSON.stringify({location: address}),
       success: (data) => {
         this.setState({
-          directions: data
+          directions: data,
+          submitClicked: false
         });
       },
       error: (error) => {
@@ -134,9 +141,9 @@ class Contact extends Component {
 
   handleOpen(e) {
     const messages = {
-      email: 'Your response must be a valid email address.  Please re-enter it, thanks!',
-      subject: 'Please enter a valid subject.',
-      message: 'Please enter a valid message.'
+      email: 'Your response must be a valid email address.  Please re-enter it. Thanks!',
+      subject: 'Please enter a subject.',
+      message: 'Please enter a message.'
     }
     const titles = {
       email: 'Invalid Email Address',
@@ -212,17 +219,37 @@ class Contact extends Component {
           <div className="col" style={{width: '50%'}}>
             <div style={{width: '100%', margin: '10px auto 0', borderRadius: '3px', border: 'solid #584915', background: '#584915', boxShadow: '0 3px 6px 0 rgba(0,0,0,0.2)'}}>
               <div style={{margin: '8px', border: 'solid black', background: 'white', textAlign: 'center'}}>
-                Find us at 10485 Theodore Green Blvd, White Plains, MD 20695
+                Find us at 10485 Theodore Green Blvd, White Plains, MD 20695.
               </div>
               <a target="_blank" href="https://www.google.com/maps/place/C+H+Attick+Electric+Inc/@38.5894857,-76.9462365,15.76z/data=!4m5!3m4!1s0x0:0x527d1ce2a5d7c478!8m2!3d38.589189!4d-76.947044"><img src='map.png' style={{width: '100%'}}/></a>
             </div>
             <div className="form-group">
               <label className={style.label}>Need directions? Enter an address below.</label>
-              <input type="email" className="form-control" id="directionInput" aria-describedby="emailHelp" placeholder="Enter your location"/>
+              <input type="email" className="form-control" id="directionInput" aria-describedby="emailHelp" placeholder="Street City, State ZIP"/>
               <button onClick={() => {this.handleDirections()}} type="submit" className={style.directionSubmit}>Submit</button>
-              <div id={style.directions}>
-                {this.state.directions.join('\n')}
-              </div>
+              {
+                this.state.submitClicked &&
+                <div style={{fontWeight: 'bold', textAlign: 'center', color: '#2BBCD5', margin: '20px', fontSize: '1.5em'}}>
+                  Loading... <CircularProgress style={{margin: '20px'}}/>
+                </div>
+              }
+              {
+                this.state.directions.length > 0 &&
+                <div style={{marginTop: '10px', padding: '10px', width: '100%', borderRadius: '3px', backgroundColor: '#584915'}}>
+                  <Delete
+                    color="white"
+                    style={{minWidth: '20px', float: 'right', cursor: 'pointer', margin: '0'}}
+                    onClick={() => {this.setState({
+                      directions: this.state.directions = 0
+                    })}}
+                  /><br></br>
+                  {this.state.directions.map((direction, index) =>
+                    <div id={style.directions} key={index}>
+                      {direction}
+                    </div>
+                  )}
+                </div>
+              }
             </div>
         </div>
       </div>

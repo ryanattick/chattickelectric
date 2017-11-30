@@ -1,6 +1,12 @@
-.home_container {
+.homeContainer {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   justify-content: space-around;
-  align-items: baseline;
+  align-content: space-between;
+  align-items: flex-start;
+  width: 80%;
+  margin: auto;
+  height: 85%;
+  margin-top: 10px;
+  flex-grow: 2;
 }
