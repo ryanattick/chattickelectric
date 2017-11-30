@@ -13,44 +13,42 @@ class Home extends Component {
   render() {
 
     const style = {
-      marginRight: '140px',
-      marginTop: '20px',
-      marginBottom: '20px',
-      display: 'inline',
-      padding: '20px',
-      width: '30%'
+      padding: '10px',
+      width: '40%',
+      alignSelf: 'flex-start',
     };
 
     return (
-      <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'flex-start', alignContent: 'stretch', alignItems: 'flex-start'}}>
-          <img src='https://i.imgur.com/l9eQyIX.jpg' style={{width: '35%', marginLeft: '100px', marginTop: '20px'}}/>
-          <div style={{maxWidth: '45%', margin: '20px', textAlign: 'center'}}>
-            <h4 >Celebrating 40 years of excellence!</h4>
+      <div style={{display: 'flex', flexFlow: 'row wrap', justifyContent: 'space-around', alignContent: 'space-between', alignItems: 'flex-start', width: '80%', margin: 'auto', height: '85%', marginTop: '10px', flexGrow: '2'}}>
+          <img src='https://i.imgur.com/l9eQyIX.jpg' style={{width: '40%'}}/>
+          <div style={{maxWidth: '45%', textAlign: 'center'}}>
+            <span style={{fontSize: '1.5em', fontWeight: 'bold'}}>Celebrating 40 years of excellence!</span><br></br><br></br>
             C.H. Attick Electric is a family owned and operated electrical contracting company specializing in commercial and industrial work. Many of its projects include schools, office buildings, shopping centers, wastewater treatment plants, and pump stations.
           </div>
-          <h3 style={{margin: 'auto'}}>
-            Contact us now at (301) 870-3700!
-          </h3>
-            <Paper style={style} zDepth={2}>
-              <h4 style={{marginBottom: '20px'}}>Services</h4>
-              <ul style={{listStyleType: 'none'}}>
+              <Paper style={style} zDepth={2}>
+              <div style={{textAlign: 'center', fontSize: '1.5em'}}>Services</div>
+              <ul>
                 <li>
-                  service 1
+                  Industrial
                 </li>
                 <li>
-                  service 2
+                  Commercial
                 </li>
                 <li>
-                  service 3
+                  Service
                 </li>
                 <li>
-                  service 4
+                  Design Build
                 </li>
                 <li>
-                  service 5
+                  Site Improvements: Excavation and Concrete
                 </li>
               </ul>
             </Paper>
+            <img src='https://i.imgur.com/FR5WYxp.jpg' style={{width: '40%'}}/>
+            <div style={{fontSize: '1.5em', background: '#584915', padding: '20px', color: 'white', boxShadow: '0 5px 5px 0 rgba(0,0,0,0.05)', borderRadius: '10px'}}>
+              Contact us now at (301) 870-3700!
+            </div>
       </div>
     );
   }

@@ -159,7 +159,7 @@ class Contact extends Component {
       />
     ];
     return (
-      <div className="container">
+      <div className="container" style={{width: '80%'}}>
         <Dialog
           title={this.state.dialogTitle}
           actions={actions}
@@ -177,18 +177,33 @@ class Contact extends Component {
             <div style={{float: 'left', width: '90%', margin: '10px auto 0', boxShadow: '2px 2px 5px 1px rgba(0,0,0,0.2)', padding: '0 0 40px', borderRadius: '3px'}}>
               <h1 id={style.formHeader}>Contact Us</h1>
               <div style={{width: '90%', marginLeft:'10px'}}>
-              <TextField id='email' style={{width: '90%', marginLeft:'10px'}} id='email' onBlur={(e) => {this.checkEmail(e)}}
+              <TextField
+                id='email'
+                style={{width: '90%', marginLeft:'10px'}}
+                onBlur={(e) => {this.checkEmail(e)}}
                 floatingLabelText="Email"
                 hintText="name@email.com"
+                floatingLabelFocusStyle={{color: '#d7ba57'}}
+                underlineFocusStyle={{borderColor: '#d7ba57'}}
               /></div><br />
               <div style={{width: '90%', marginLeft:'10px'}}>
-              <TextField id='subject' style={{width: '90%', marginLeft:'10px'}} onBlur={(e) => {this.checkSubject(e)}}
+              <TextField
+                id='subject'
+                style={{width: '90%', marginLeft:'10px'}}
+                onBlur={(e) => {this.checkSubject(e)}}
                 floatingLabelText="Subject"
+                floatingLabelFocusStyle={{color: '#d7ba57'}}
+                underlineFocusStyle={{borderColor: '#d7ba57'}}
               /></div><br />
               <div style={{width: '90%', marginLeft:'10px'}}>
-              <TextField id='message' style={{width: '90%', marginLeft:'10px'}} onBlur={(e) => {this.checkMessage(e)}}
+              <TextField
+                id='message'
+                style={{width: '90%', marginLeft:'10px'}}
+                onBlur={(e) => {this.checkMessage(e)}}
                 floatingLabelText="Message"
-                hintText="Please include your name and any extra contact information"
+                hintText="Please include your name and any other additional contact information."
+                floatingLabelFocusStyle={{color: '#d7ba57'}}
+                underlineFocusStyle={{borderColor: '#d7ba57'}}
                 multiLine={true}
               /></div><br />
               <button className={style.send} onClick={() => {this.sendEmail()}}>Send</button>
@@ -202,7 +217,7 @@ class Contact extends Component {
               <a target="_blank" href="https://www.google.com/maps/place/C+H+Attick+Electric+Inc/@38.5894857,-76.9462365,15.76z/data=!4m5!3m4!1s0x0:0x527d1ce2a5d7c478!8m2!3d38.589189!4d-76.947044"><img src='map.png' style={{width: '100%'}}/></a>
             </div>
             <div className="form-group">
-              <label className={style.label}>Need directions? Enter an address below</label>
+              <label className={style.label}>Need directions? Enter an address below.</label>
               <input type="email" className="form-control" id="directionInput" aria-describedby="emailHelp" placeholder="Enter your location"/>
               <button onClick={() => {this.handleDirections()}} type="submit" className={style.directionSubmit}>Submit</button>
               <div id={style.directions}>

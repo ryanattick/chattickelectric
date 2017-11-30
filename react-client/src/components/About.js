@@ -21,33 +21,48 @@ const styles = {
 const tilesData = [
   {
     img: 'https://i.imgur.com/rbqYoZC.jpg',
-    title: 'Lucille Attick',
-    author: 'Co-Founder',
+    name: 'Lucille Attick',
+    position: 'Co-Founder',
   },
   {
     img: 'https://i.imgur.com/21DDHf4.jpg',
-    title: 'Tom Attick',
-    author: 'Co-Owner/Electrical Contractor',
+    name: 'Tom Attick',
+    position: 'Co-Owner/Electrical Contractor',
   },
   {
     img: 'https://i.imgur.com/7xKhc3N.jpg',
-    title: 'Traci Norris',
-    author: 'Co-Owner/Accountant',
+    name: 'Traci Norris',
+    position: 'Co-Owner/Accountant',
   },
   {
     img: 'https://i.imgur.com/SVHcLWn.jpg',
-    title: 'Patty Therres',
-    author: 'Administrative Assistant',
+    name: 'Patty Therres',
+    position: 'Administrative Assistant',
   },
   {
     img: 'https://i.imgur.com/5vNtfsv.jpg',
-    title: 'Bob Wilson',
-    author: 'Electrical Foreman',
+    name: 'Bob Wilson',
+    position: 'Electrical Foreman',
   },
   {
     img: 'https://i.imgur.com/huCcLxq.jpg',
-    title: 'Marty Miller',
-    author: 'Project Coordinator',
+    name: 'Marty Miller',
+    position: 'Project Coordinator',
+  },
+  {
+    img: 'https://i.imgur.com/CnlSRFh.jpg',
+    name: 'Mike Miller',
+    position: 'Superintendent',
+  },
+  {
+    img: 'https://i.imgur.com/QrKHik1.jpg',
+    name: 'Steve Watson',
+    position: 'Superintendent',
+  },
+  {
+    img: 'https://i.imgur.com/Iou2NV5.jpg',
+    name: 'Bob Demarr',
+    position: 'Superintendent',
   },
 ];
 
@@ -70,8 +85,8 @@ class About extends Component {
               {tilesData.map((tile) => (
                 <GridTile
                   key={tile.img}
-                  title={tile.title}
-                  subtitle={<span><b>{tile.author}</b></span>}
+                  title={tile.name}
+                  subtitle={<span><b>{tile.position}</b></span>}
                 >
                   <img src={tile.img} />
                 </GridTile>
