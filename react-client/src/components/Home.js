@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Paper from 'material-ui/Paper';
-import '../../styles/home.css';
 
 class Home extends Component {
   constructor(props) {
