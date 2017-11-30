@@ -53,7 +53,9 @@
 
 #directions {
   white-space: pre-line;
-  border: none;
+  background-color: white;
+  margin: 10px;
+  border: 2px solid #584915;
   border-radius: 3px;
   box-shadow: 0 5px 5px 0 rgba(0,0,0,0.05);
   text-align: center;
